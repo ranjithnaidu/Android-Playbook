@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<style name="Widget.APPosts" parent="@android:style/Widget" />
+
+	<style name="TextAppearance.APPosts.PostTitle.Display" parent="@style/TextAppearance.AppCompat.Display1">
+		<item name="android:fontFamily">@font/opensans_bold</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="Widget.APPosts.PostDetailTitle">
+		<item name="android:gravity">start|bottom</item>
+		<item name="android:textAppearance">@style/TextAppearance.APPosts.PostTitle.Display</item>
+		<item name="android:breakStrategy" tools:targetApi="m">balanced</item>
+		<item name="android:lineSpacingMultiplier">1</item>
+		<item name="autoSizeTextType">uniform</item>
+		<item name="autoSizeMaxTextSize">28sp</item>
+	</style>
+
+	<style name="TextAppearance.APPost.PostTitle" parent="@style/TextAppearance.AppCompat.Title">
+		<item name="android:textSize">20sp</item>
+		<item name="android:fontFamily">@font/opensans_semibold</item>
+		<item name="android:textColor">@color/grey_800</item>
+	</style>
+
+	<style name="TextAppearance.APPost.PostDescription" parent="@style/TextAppearance.AppCompat.Body1">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">@font/opensans_regular</item>
+		<item name="android:textColor">@color/grey_800</item>
+		<item name="android:lineSpacingExtra">8sp</item>
+	</style>
+</resources>
