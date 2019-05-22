@@ -16,10 +16,9 @@ The app displays a list of posts and allows the users to click on it and opens a
  - Author name (This is loaded from the api upon opening the page)
 
 Please find the Screeshots below:-
-
-![Screenshot_1558520659](https://user-images.githubusercontent.com/2275562/58168628-4fbf9a00-7cc1-11e9-8842-985c990c90a6.png)
-![Screenshot_1558520670](https://user-images.githubusercontent.com/2275562/58168631-53532100-7cc1-11e9-80e4-30f92be91559.png)
-![Screenshot_1558520666](https://user-images.githubusercontent.com/2275562/58168638-56e6a800-7cc1-11e9-986c-3e4de4699d89.png)
+![Screenshot_1558520659](https://user-images.githubusercontent.com/2275562/58169007-39fea480-7cc2-11e9-85c7-2e0e9fffef8a.png)
+![Screenshot_1558520670](https://user-images.githubusercontent.com/2275562/58169012-3c60fe80-7cc2-11e9-94d5-bae9ba47a45d.png)
+![Screenshot_1558520666](https://user-images.githubusercontent.com/2275562/58169019-3ec35880-7cc2-11e9-8568-d27e08801f1b.png)
 
 ## App Architecture
 
