@@ -32,3 +32,5 @@ I used [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel
 The services job is to interact with our apis and convert the responses into models that the rest of the app can use. I'm currently using [Retrofit2](https://square.github.io/retrofit/), [Okhttp](https://square.github.io/okhttp/) and RxJava](https://github.com/ReactiveX/RxJava) Adapter to automatically convert the api responses into Rx observables.
 
 I'm using Junit and [nhaarman's mockito-kotlin](https://github.com/nhaarman/mockito-kotlin) library for Unit-testing.
+
+For any further queries please contact at <ranjithnaidu.v@gmail.com>
