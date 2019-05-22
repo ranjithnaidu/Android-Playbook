@@ -2,14 +2,15 @@ package com.ranjithnaidu.android.playbook.post.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.ranjithnaidu.android.playbook.services.PlaybookService
+import com.ranjithnaidu.android.playbook.post.PostsRepository
 import com.ranjithnaidu.android.playbook.shared.viewmodel.BaseViewModel
 import com.ranjithnaidu.android.playbook.utils.setValueIfNew
+import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
-class PostDetailViewModel : BaseViewModel() {
+class PostDetailViewModel : BaseViewModel(), KoinComponent {
 
-    private val playbookService: PlaybookService by inject()
+    private val postsRepository: PostsRepository by inject()
 
     val postId = MutableLiveData<String>()
     val postUserId = MutableLiveData<String>()
@@ -20,16 +21,16 @@ class PostDetailViewModel : BaseViewModel() {
     val authorName = MutableLiveData<String>()
 
     private fun loadComments(postId: String) {
-        playbookService.loadComments()
-            .subscribe({ comments ->
-                noOfComments.postValue(comments.filter { postId == it.postId }.size)
+        postsRepository.loadNoOfCommentsForPost(postId)
+            .subscribe({
+                noOfComments.postValue(it)
             }, { Log.e(it.message, it.toString()) }).autoDispose()
     }
 
     private fun loadAuthor(userId: String) {
-        playbookService.loadAuthors()
-            .subscribe({ users ->
-                authorName.postValue(users.find { userId == it.id }?.name)
+        postsRepository.loadAuthorNameForPost(userId)
+            .subscribe({ author ->
+                authorName.postValue(author)
             }, { Log.e(it.message, it.toString()) }).autoDispose()
     }
 

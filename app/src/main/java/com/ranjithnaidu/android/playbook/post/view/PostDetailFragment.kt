@@ -1,32 +1,35 @@
 package com.ranjithnaidu.android.playbook.post.view
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ranjithnaidu.android.playbook.R
 import com.ranjithnaidu.android.playbook.databinding.FragmentPostDetailBinding
 import com.ranjithnaidu.android.playbook.post.viewmodel.PostDetailViewModel
 import com.ranjithnaidu.android.playbook.services.models.Post
+import com.ranjithnaidu.android.playbook.shared.view.RoundedBottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.standalone.KoinComponent
 
-class PostDetailActivity : BottomSheetDialogFragment(), KoinComponent {
+class PostDetailFragment : RoundedBottomSheetDialogFragment(), KoinComponent {
 
     private val postsViewModel: PostDetailViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        postsViewModel.setPostId(requireNotNull(arguments).getString(EXTRA_POST_ID))
-        postsViewModel.setPostUserId(requireNotNull(arguments).getString(EXTRA_POST_USER_ID))
-        postsViewModel.setPostTitleAndBody(
-            postTitle = requireNotNull(arguments).getString(EXTRA_POST_TITLE),
-            postBody = requireNotNull(arguments).getString(EXTRA_POST_BODY)
-        )
+        arguments?.let { args ->
+            args.getString(EXTRA_POST_ID)?.let { postsViewModel.setPostId(it) }
+            args.getString(EXTRA_POST_USER_ID)?.let { postsViewModel.setPostUserId(it) }
+            args.getString(EXTRA_POST_ID)?.let { postsViewModel.setPostId(it) }
+            args.getString(EXTRA_POST_USER_ID)?.let { postsViewModel.setPostUserId(it) }
+
+            postsViewModel.setPostTitleAndBody(
+                postTitle = args.getString(EXTRA_POST_TITLE),
+                postBody = args.getString(EXTRA_POST_BODY)
+            )
+        }
 
         val binding = FragmentPostDetailBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
@@ -53,14 +56,14 @@ class PostDetailActivity : BottomSheetDialogFragment(), KoinComponent {
         private const val EXTRA_POST_BODY = "POST_BODY"
         private const val EXTRA_POST_TITLE = "POST_TITLE"
 
-        fun newInstance(post: Post): PostDetailActivity {
+        fun newInstance(post: Post): PostDetailFragment {
             val bundle = Bundle().apply {
                 putString(EXTRA_POST_ID, post.id)
                 putString(EXTRA_POST_USER_ID, post.userId)
                 putString(EXTRA_POST_BODY, post.body)
                 putString(EXTRA_POST_TITLE, post.title)
             }
-            return PostDetailActivity().apply { arguments = bundle }
+            return PostDetailFragment().apply { arguments = bundle }
         }
     }
 

@@ -2,15 +2,15 @@ package com.ranjithnaidu.android.playbook.post.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.ranjithnaidu.android.playbook.post.PostsRepository
 import com.ranjithnaidu.android.playbook.post.view.PostAdapter
-import com.ranjithnaidu.android.playbook.services.PlaybookService
 import com.ranjithnaidu.android.playbook.services.models.Post
 import com.ranjithnaidu.android.playbook.shared.viewmodel.BaseViewModel
 import org.koin.standalone.inject
 
 class PostsViewModel : BaseViewModel() {
 
-    private val playbookService: PlaybookService by inject()
+    private val postsRepository: PostsRepository by inject()
 
     private var posts: List<Post> = listOf()
     val postsAdapterItems = MutableLiveData<List<PostAdapter.PostAdapterItem>>()
@@ -22,7 +22,7 @@ class PostsViewModel : BaseViewModel() {
     }
 
     private fun loadPosts() {
-        playbookService.loadPosts()
+        postsRepository.loadPosts()
             .doOnSubscribe {
                 postsLoading = true
                 updatePostsAdapter()

@@ -1,21 +1,19 @@
 package com.ranjithnaidu.android.playbook.post.viewmodel
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
+import com.ranjithnaidu.android.playbook.post.PostsRepository
 import com.ranjithnaidu.android.playbook.post.view.PostAdapter
 import com.ranjithnaidu.android.playbook.services.models.Post
 import com.ranjithnaidu.android.playbook.shared.view.BaseListAdapterItem
 import com.ranjithnaidu.android.playbook.shared.view.BaseListItemViewModel
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
+import org.koin.standalone.inject
 
 /**
  * This is the view model used to display the different posts
  */
 class PostListItemViewModel : BaseListItemViewModel() {
 
-    private val postClickedSubject = PublishSubject.create<Post>()
-    val postUpdates: Observable<Post> = postClickedSubject.hide()
+    private val postsRepository: PostsRepository by inject()
 
     val postTitle = MutableLiveData<String>()
     var post: Post? = null
@@ -26,9 +24,9 @@ class PostListItemViewModel : BaseListItemViewModel() {
         postTitle.postValue(listAdapterItem.post.title)
     }
 
-    fun onPostClicked(view: View) {
+    fun onPostClicked() {
         post?.let {
-            postClickedSubject.onNext(it)
+            postsRepository.openPostDetail(it)
         }
     }
 }
