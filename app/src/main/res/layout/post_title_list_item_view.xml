@@ -10,13 +10,12 @@
     </data>
 
     <LinearLayout
+            android:id="@+id/post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{viewModel::onPostClicked}"
             android:orientation="vertical">
 
         <TextView
-                android:id="@+id/post_title"
                 style="@style/TextAppearance.APPost.PostTitle"
                 android:background="@drawable/inset_borderless_btn"
                 android:layout_width="match_parent"

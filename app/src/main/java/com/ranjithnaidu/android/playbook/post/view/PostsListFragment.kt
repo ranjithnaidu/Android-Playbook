@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ranjithnaidu.android.playbook.databinding.FragmentPostsListsBinding
-import com.ranjithnaidu.android.playbook.post.viewmodel.PostListItemViewModel
+import com.ranjithnaidu.android.playbook.databinding.FragmentPostsListBinding
 import com.ranjithnaidu.android.playbook.post.viewmodel.PostsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.standalone.KoinComponent
@@ -19,7 +18,7 @@ class PostsListFragment : Fragment(), KoinComponent {
     private val postsViewModel: PostsViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = FragmentPostsListsBinding.inflate(inflater, container, false)
+        val binding = FragmentPostsListBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = postsViewModel
 
@@ -28,7 +27,7 @@ class PostsListFragment : Fragment(), KoinComponent {
         return binding.root
     }
 
-    private fun initUi(binding: FragmentPostsListsBinding) {
+    private fun initUi(binding: FragmentPostsListBinding) {
         val postAdapter = setUpRecyclerView(binding.postsRecyclerView, LinearLayoutManager(context))
         postsViewModel.postsAdapterItems.observe(this, Observer {
             postAdapter.submitList(it)
