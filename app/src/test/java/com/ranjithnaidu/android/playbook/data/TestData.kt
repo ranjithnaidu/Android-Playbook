@@ -64,6 +64,8 @@ object TestData {
 
     val commentsList = listOf(commentOne, commentTwo)
 
+    const val commentItemToBePassed = 1
+
     const val commentsExpected = 1
 
     private val authorOne = User(
@@ -89,6 +91,8 @@ object TestData {
     )
 
     val authorsList = listOf(authorOne, authorTwo)
+
+    const val authorItemToBePassed = "Author One"
 
     const val expectedAuthorName = "Author One"
 }

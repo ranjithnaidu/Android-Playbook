@@ -1,9 +1,9 @@
 package com.ranjithnaidu.android.playbook.post.viewmodel
 
 import com.nhaarman.mockitokotlin2.whenever
-import com.ranjithnaidu.android.playbook.data.TestData.authorsList
+import com.ranjithnaidu.android.playbook.data.TestData.authorItemToBePassed
+import com.ranjithnaidu.android.playbook.data.TestData.commentItemToBePassed
 import com.ranjithnaidu.android.playbook.data.TestData.commentsExpected
-import com.ranjithnaidu.android.playbook.data.TestData.commentsList
 import com.ranjithnaidu.android.playbook.data.TestData.expectedAuthorName
 import com.ranjithnaidu.android.playbook.data.TestData.postBody
 import com.ranjithnaidu.android.playbook.data.TestData.postId
@@ -22,8 +22,8 @@ class PostDetailViewModelTest : BaseUnitTest() {
     override fun setup() {
         super.setup()
 
-        whenever(mockPlaybookService.loadComments()).thenReturn(Single.just(commentsList))
-        whenever(mockPlaybookService.loadAuthors()).thenReturn(Single.just(authorsList))
+        whenever(mockPostsRepository.loadNoOfCommentsForPost(postId)).thenReturn(Single.just(commentItemToBePassed))
+        whenever(mockPostsRepository.loadAuthorNameForPost(postUserId)).thenReturn(Single.just(authorItemToBePassed))
 
         postDetailViewModelUnderTest = PostDetailViewModel()
         postDetailViewModelUnderTest.setPostTitleAndBody(
