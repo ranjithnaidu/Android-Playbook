@@ -16,7 +16,7 @@ class PostsViewModelTest : BaseUnitTest() {
 
     override fun setup() {
         super.setup()
-        whenever(mockPlaybookService.loadPosts()).thenReturn(Single.just(postsList))
+
         postsViewModelUnderTest = PostsViewModel()
     }
 
