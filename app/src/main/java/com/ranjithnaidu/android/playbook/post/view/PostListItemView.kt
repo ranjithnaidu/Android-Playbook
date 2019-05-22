@@ -22,8 +22,8 @@ class PostListItemView(
 
     init {
         (binding as PostTitleListItemViewBinding).viewModel = viewModel
-        binding.root.post_title.setOnClickListener {
-            viewModel.post?.let { startActivity(context, PostDetailActivity.starterIntent(context, it), null) }
-        }
+//        binding.root.post_title.setOnClickListener {
+//            viewModel.post?.let { startActivity(context, PostDetailActivity.starterIntent(context, it), null) }
+//        }
     }
 }
