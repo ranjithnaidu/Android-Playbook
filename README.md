@@ -17,6 +17,10 @@ The app displays a list of posts and allows the users to click on it and opens a
 
 Please find the Screeshots below:-
 
+![Screenshot_1558520659](https://user-images.githubusercontent.com/2275562/58168628-4fbf9a00-7cc1-11e9-8842-985c990c90a6.png)
+![Screenshot_1558520670](https://user-images.githubusercontent.com/2275562/58168631-53532100-7cc1-11e9-80e4-30f92be91559.png)
+![Screenshot_1558520666](https://user-images.githubusercontent.com/2275562/58168638-56e6a800-7cc1-11e9-986c-3e4de4699d89.png)
+
 ## App Architecture
 
 This app is entirely written in [Kotlin](https://kotlinlang.org/).
