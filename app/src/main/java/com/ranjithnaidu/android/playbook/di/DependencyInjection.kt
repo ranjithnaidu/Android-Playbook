@@ -1,6 +1,7 @@
 package com.ranjithnaidu.android.playbook.di
 
 import com.ranjithnaidu.android.playbook.BuildConfig
+import com.ranjithnaidu.android.playbook.post.PostsRepository
 import com.ranjithnaidu.android.playbook.post.viewmodel.PostDetailViewModel
 import com.ranjithnaidu.android.playbook.post.viewmodel.PostHeaderViewModel
 import com.ranjithnaidu.android.playbook.post.viewmodel.PostListItemViewModel
@@ -35,6 +36,7 @@ val container: Module = module {
     viewModel { PostHeaderViewModel() }
 
     single { PlaybookService() }
+    single { PostsRepository() }
 
     single<CallAdapter.Factory> { RxJava2CallAdapterFactory.create() }
     // Background execution threads used by retrofit

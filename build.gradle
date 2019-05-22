@@ -8,6 +8,7 @@ buildscript {
     ext.koin_version = '1.0.2'
     ext.retrofit2_version = '2.4.0'
     ext.rxandroid_version = '2.1.0'
+    ext.rxbinding_version = '3.0.0-alpha2'
     ext.rxjava_version = '2.2.4'
     ext.rxkotlin_version = '2.3.0'
     ext.shimmer_layout_version = '0.4.0'
